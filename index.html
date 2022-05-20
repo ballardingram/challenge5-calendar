@@ -30,10 +30,23 @@
         <h2 class = "subtitle has-text-light has-text-centered"> A simple calendar app for scheduling your work day.</h2>
     </section>
 
+    <section class = "clock has-background-dark has-text-white has-text-centered">
+        <p id = "CurrentDate"></p>
+        <p id = "CurrentTime"></p>
+        <script>
+            const today = new Date();
+            const date = (today.getMonth()+1)+'-'+today.getDate()+'-'+today.getFullYear();
+            const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+            const dateTime = date + ' ' + time;
+            document.getElementById("CurrentDate").innerHTML = dateTime;
+        </script>
+    </section>
+
     <section class = "navtabs has-background-dark">
         <div class="tabs is-centered">
             <ul>
-              <li class="is-active">
+              <li class = "is-active">
                   <a href = "index.html"> Home </a>
                 </li>
               <li class = "is-active">
@@ -48,8 +61,9 @@
             <div class = "column is-1 has-background-grey-light has-text-vcentered">
                 <strong>07:00 AM</strong>
             </div>
-            <div class = "column is-9">
-                <textarea class = "textarea" placeholder = "Task Details Here"></textarea>
+            <div class = "column is-9 taskCard">
+                    <p id = "task-1"></p>
+                </textarea>
             </div>
             <div class = "column is-2">
                 <button class = "saveButton">
@@ -70,7 +84,7 @@
 <footer class = "footer">
     <div class = "content has-text-centered">
         <p>
-            <strong> Work Day Scheduler </strong> by <a href=""> Ballard Ingram</a>!
+            <strong> Work Day Scheduler </strong> by <a href="https://github.com/ballardingram/challenge5-calendar"> Ballard Ingram</a>!
         </p>
     </div>
 </footer>
