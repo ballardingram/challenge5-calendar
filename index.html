@@ -50,7 +50,20 @@
 
     <!-- CALENDAR CONTAINER -->
     <!-- NOTE > CALENDAR TIME STARTS AT 07:00 AM AND GOES TO 04:00 PM LOCAL TIME -->
-      <div class = "columns is-multiline pt-5 pl-5 pr-5" id="7">
+
+    <div class = "container">
+        <div class = "row taskblock">
+            <div class = "column is-2">07:00 AM</div>
+            <div class = "column is-9 noteBin" id = "note-6">
+                <p id = "note-detail-0"></p>
+            </div>
+            <button class = "column is-2 saveBtn" id = "save-button">
+                <i class="fa-regular fa-square-check fa-3x"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class = "columns is-multiline pt-5 pl-5 pr-5 taskContainer" id="task-7">
         <span class = "column is-1 has-background-white has-text-centered has-text-vcentered"><strong>07:00 AM</strong></span>
         <span class = "column is-9"> <textarea class = "textarea is-small is-link" placeholder = "Add text detail here..."></textarea></span>
         <span class = "column is-2 has-background-white">
@@ -117,7 +130,7 @@
     </div>
       <div class = "columns is-multiline pl-5 pr-5" id="12">
         <span class = "column is-1 has-background-white has-text-centered has-text-vcentered"><strong>12:00 PM</strong></span>
-        <span class = "column is-9"> <textarea class = "textarea is-small is-link" placeholder = "Add text detail here..."></textarea></span>
+        <span class = "column is-9 row"><textarea></textarea></span>
         <span class = "column is-2 has-background-white">
             <p class = "buttons">
                 <button class = "button is-large">
@@ -186,7 +199,7 @@
     <!-- DEPENDENCY > JQUERY - (https://api.jquery.com/)-->
     <script src = "./assets/js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    <script src="path/to/dayjs/dayjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
 </body>
 
 <footer class = "footer">

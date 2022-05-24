@@ -1,5 +1,3 @@
-@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
-
 /* FUNCTION > TIME INDICATORS BASED ON THE TIME OF DAY, THIS TELLS THE USER IF THE TASK IS OVERDUE, CURRENT, OR UPCOMING BASED ON THE HOUR*/
 .past {
     background-color: lightcoral;

@@ -1,3 +1,37 @@
+// FUNCTIONS > NOTES ARRAY
+notes = [];
+
+// FUNCTION > LOAD NOTES
+const loadNotes = function() {
+    notes = JSON.parse(localStorage.getItem("notes"))
+    if(!notes) {
+        notes = {};
+    };
+    printNotes(notes)
+}
+
+// FUNCTION > PRINT NOTES
+const printNotes = function() {
+  $.each(notes, function(list, arr) {
+      const notesBlock = $("<p>").addClass("description note-detail-" + list).text(arr)
+      $("#note-detail" +list).replaceWith(notesBlock);
+  })
+};
+
+// FUNCTION > UPDATE NOTE
+$(".noteBlock").on("click", "p", function() {
+const text = $(this)
+.text()
+.trim();
+const noteInput = $("<textarea")
+.addClass("note-detail")
+.val(text);
+$(this).replaceWith(noteInput);
+noteInput.trigger("focus");
+});
+
+
+
 // FUNCTION > SETS CURRENT DATE
 // DOCUMENTATION > NOW DAYJS (https://day.js.org/docs/en/parse/now)
 // DOCUMENATION > CURRENT TIME (https://phoenixnap.com/kb/how-to-get-the-current-date-and-time-javascript)
@@ -11,36 +45,19 @@ const today = new Date();
 
 // FUNCTION > TIME OF DAY STYLE INDICATOR - CHANGES TASK APPEARANCE TO REFLECT OVERDUE (PAST), CURRENT (PRESENT), AND UPCOMING(FUTURE)
 const hourIndicator = function() {
-    const today = new Date();
-    const currentTime = today.getHours();
+    const currentTime = moment().hour()
     for ( const i = 7; i < 19; i++) {
-        const taskCard = $("#time-" +i)
+        const noteCard = $("#note-" +i)
         if(currentTime > i) {
-            $(taskCard).addClass("past");
+            $(noteCard).addClass("past");
         } else if (currentTime === i) {
-            $(taskCard).addClass("present");
+            $(noteCard).addClass("present");
         } else if (currentTime === i) {
-            $(taskCard).addClass("future")
+            $(noteCard).addClass("future")
         }
     }
 };
 
-// FUNCTIONS > TASK ARRAY
-tasks = [];
-
-// FUNCTION > LOAD TASKS
-const loadTasks = function() {
-    tasks = JSON.parse(localStorage.getItem("tasks"))
-    if(!tasks) {
-        tasks = {};
-    };
-    printTasks(tasks)
-}
-
-// FUNCTION > PRINT TASKS
-const printTasks = function() {
-    $.each(tasks, function(list, arr) {
-        const taskBlock = $("<p>").addClass("taskCard taskNumber" + list).text(arr)
-        $("#task-number-" +list).replaceWith(taskBlock);
-    })
-};
+// FUNCTIONS > LOAD NOTES AND HOUR INDICATOR FOR TIME
+loadNotes();
+hourIndicator();
